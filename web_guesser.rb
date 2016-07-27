@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-ANSWER = rand(101)
+set :answer, rand(101)
 
 
 get '/' do
@@ -14,16 +14,16 @@ def check_guess(guess)
 	message = "Please make a guess"
 	if guess
 		guess = guess.to_i
-		if guess - 10 > ANSWER
+		if guess - 10 > settings.answer
 			message = "Way too high!"
-		elsif guess > ANSWER
+		elsif guess > settings.answer
 			message = "Too high!"
-		elsif guess + 10 < ANSWER
+		elsif guess + 10 < settings.answer
 			message = "Way too low!"
-		elsif guess < ANSWER
+		elsif guess < settings.answer
 			message = "Too low!"
 		else
-			message = "You got it right! The SECRET NUMBER is #{ANSWER}"
+			message = "You got it right! The SECRET NUMBER is #{settings.answer}"
 		end
 	end
 	message
