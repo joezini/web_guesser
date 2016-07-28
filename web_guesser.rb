@@ -63,9 +63,8 @@ def set_message(comparison, reset, cheat_mode_on)
 		end
 	end
 	if cheat_mode_on
-		message = message + "\nCheat mode on: the answer is #{@@answer}"
+		message = message + "\r\nCheat mode on: the answer is #{@@answer}"
 	end
-	message = message + "\nGuesses = #{@@guesses}"
 	message
 end
 
